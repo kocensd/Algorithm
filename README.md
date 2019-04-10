@@ -26,7 +26,13 @@ return result
 ```swift
 let string = "Hello Swift"
 if let range = string.range (of: "Swift") {
-    let location : Int = string.distance(from: string.startIndex, to: range.lowerBound)
-    print(location) //6
+    let 시작점 = string[string.startIndex..<range.lowerBound].count
+//    let location : Int = string.distance(from: string.startIndex, to: range.lowerBound)
+//    print(location) //6
 }
+```
+
+###### 문자열 안에 문자열로 시작되는 index가져오기
+```swift
+
 ```
