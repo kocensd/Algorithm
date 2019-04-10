@@ -51,3 +51,30 @@ func searchInsert(_ nums: [Int], _ target: Int) -> Int {
     return result
 }
 ```
+
+###### 53. 배열안에 연속적으로 더했을때 가장 큰 값을 리턴하라.
+```swift
+func maxSubArray(_ nums: [Int]) -> Int {
+    guard nums.count != 0 else{
+        return 0
+    }
+    
+    guard nums.count != 1 else{
+        return nums[0]
+    }
+    
+    var largestSum = nums[0]
+    var sum = nums[0]
+    
+    for i in 1..<nums.count{
+        sum = max(sum + nums[i], nums[i]) //max(a, b)를 비교하여 더 큰값을 반환한다.
+        if sum > largestSum {
+            largestSum = sum
+        }
+    }
+    
+    return largestSum
+}
+
+maxSubArray([-2,1,-3,4,-1,2,1,-5,4]) //6
+```
