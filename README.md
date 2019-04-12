@@ -52,6 +52,34 @@ func searchInsert(_ nums: [Int], _ target: Int) -> Int {
 }
 ```
 
+###### 7. Int 숫자를 Reverse시키기
+```swift
+func reverse(_ x: Int) -> Int {    
+    var value = x
+    var resultValue = 0
+    var plus: Bool = true
+    
+    if value > 0 {
+        plus = true
+    } else {
+        value = value * -1
+        plus = false
+    }
+    let str = String(String(value).reversed())
+    if plus {
+        resultValue = Int(str)!
+    } else {
+        resultValue = -Int(str)!
+    }
+    let val = Int(pow(Double(2),Double(31)))   // Int형의 범위를 벗어나면 0으로 리턴해주기 위해서 사용
+    if resultValue > val-1 || resultValue < -val {
+        return 0
+    }
+    return resultValue
+}
+
+reverse(1534236469)
+```
 ###### 53. 배열안에 연속적으로 더했을때 가장 큰 값을 리턴하라.
 ```swift
 func maxSubArray(_ nums: [Int]) -> Int {
