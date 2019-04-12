@@ -78,3 +78,12 @@ func maxSubArray(_ nums: [Int]) -> Int {
 
 maxSubArray([-2,1,-3,4,-1,2,1,-5,4]) //6
 ```
+
+###### 69. Sqrt (x의 제곱근을 구하라)
+```swift 
+func mySqrt(_ x: Int) -> Int {
+    let result = Int(sqrt(Double(x)))   // swift4버전부터 사용할 수 있는 sqrt함수를 사용함
+    return result
+}
+print(mySqrt(8))
+```
