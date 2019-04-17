@@ -115,3 +115,24 @@ func mySqrt(_ x: Int) -> Int {
 }
 print(mySqrt(8))
 ```
+
+###### 88. 배열 합치고 정렬하기
+
+```swift 
+func merge(_ nums1: inout [Int], _ m: Int, _ nums2: [Int], _ n: Int) {
+    nums1.removeSubrange(m...) //해당인덱스부터 remove시켜준다.
+    nums1 += nums2
+    
+    for i in 0..<nums1.count {
+        for j in 0..<nums1.count {
+            if nums1[i] < nums1[j] {
+                let temp = nums1[i]
+                nums1[i] = nums1[j]
+                nums1[j] = temp
+            }
+        }
+    }
+}
+var aa = [1,2,3,0,0,0]
+merge(&aa, 3, [2,5,6], 3)
+```
