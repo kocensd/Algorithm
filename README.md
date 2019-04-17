@@ -136,3 +136,33 @@ func merge(_ nums1: inout [Int], _ m: Int, _ nums2: [Int], _ n: Int) {
 var aa = [1,2,3,0,0,0]
 merge(&aa, 3, [2,5,6], 3)
 ```
+
+###### 136. 중복값 제거하고 남은 숫자 가져오기
+```swift 
+func singleNumber(_ nums: [Int]) -> Int {
+//    이것도 되지만 타임제한에 걸림
+//    var intArr: [Int] = []
+//
+//    for num in nums {
+//        if intArr.contains(num) {
+//            let index = intArr.firstIndex(of: num)
+//            intArr.remove(at: index!)
+//        } else {
+//           intArr.append(num)
+//        }
+//    }
+//    return intArr[0]
+    
+    var store = Set<Int>()  //Set!
+    for num in nums {
+        if store.contains(num) {
+            store.remove(num)
+        } else {
+            store.insert(num)
+        }
+    }
+    return store.first!
+}
+
+print(singleNumber([4,1,2,1,2]))
+```
