@@ -166,3 +166,28 @@ func singleNumber(_ nums: [Int]) -> Int {
 
 print(singleNumber([4,1,2,1,2]))
 ```
+
+###### 169. 배열안에서 가장많이 중복되는 인자값 가져오기
+```swift 
+ func majorityElement(_ nums: [Int]) -> Int {
+    var dict: [Int: Int] = [:]
+    
+    for (i, num) in nums.enumerated() {
+        if i == 0 {
+            dict.updateValue(0, forKey: num)
+        } else {
+            let dic = dict.filter{ $0.key == num }
+            if let key = dic.first?.key {
+                let value = dict[key]! + 1
+                dict.updateValue(value, forKey: key)
+            } else {
+                dict.updateValue(0, forKey: num)
+            }
+        }
+    }
+    return dict.filter{ $0.value == dict.values.max()}.keys.first!
+}
+
+print(majorityElement([2,1,1,2,2]))
+
+```
