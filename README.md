@@ -192,7 +192,7 @@ print(majorityElement([2,1,1,2,2]))
 
 ```
 
-###### 167. 배열의 합이 target일때 해당 index구하기
+###### 167. 배열의 합이 target일때 해당 index구하기 (index는 1부터 시작)
 ```swift 
 func twoSum(_ numbers: [Int], _ target: Int) -> [Int] {
     var result: [Int] = []
