@@ -191,3 +191,22 @@ print(singleNumber([4,1,2,1,2]))
 print(majorityElement([2,1,1,2,2]))
 
 ```
+
+###### 167. 배열의 합이 target일때 해당 index구하기
+```swift 
+func twoSum(_ numbers: [Int], _ target: Int) -> [Int] {
+    var result: [Int] = []
+    
+    for i in 0..<numbers.count {
+        for j in i+1..<numbers.count {
+            if numbers[i] + numbers[j] == target {
+                result.append(i+1)
+                result.append(j+1)
+            }
+        }
+    }
+    return result
+}
+
+print(twoSum([2,3,4], 6))
+```
