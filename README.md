@@ -210,3 +210,15 @@ func twoSum(_ numbers: [Int], _ target: Int) -> [Int] {
 
 print(twoSum([2,3,4], 6))
 ```
+
+###### 189. Rotate Array (배열을 정해진 수만큼 회전시키기)
+
+```swift
+func rotate(_ nums: inout [Int], _ k: Int) {
+    for _ in 0..<k {
+        nums.insert(nums.last!, at: 0) // 배열의 마지막값을 맨 앞에 추가 시켜주고
+        nums.removeLast() // 마지막값을 삭제한다.
+    }
+}
+```
+
