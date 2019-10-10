@@ -225,6 +225,7 @@ func rotate(_ nums: inout [Int], _ k: Int) {
 ###### 344. Reverse String
 
 ```swift
+func reverseString(_ s: inout [Character]) {
     var i = 0
     var j = s.count - 1
     //1 i=0 j=4 result = ["o","e","l","l","h"]
@@ -236,5 +237,6 @@ func rotate(_ nums: inout [Int], _ k: Int) {
         i += 1
         j -= 1
     }
+}
 ```
 
