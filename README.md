@@ -222,3 +222,19 @@ func rotate(_ nums: inout [Int], _ k: Int) {
 }
 ```
 
+###### 344. Reverse String
+
+```swift
+    var i = 0
+    var j = s.count - 1
+    //1 i=0 j=4 result = ["o","e","l","l","h"]
+    //2 i=1 j=3 result = ["o","l","l","o","h"]
+    //3 i=2 j=2 끝
+    while (j > i) {
+        s.swapAt(i, j)
+        
+        i += 1
+        j -= 1
+    }
+```
+
