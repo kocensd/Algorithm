@@ -1,4 +1,16 @@
 # Algorithm
+###### 27. Remove Element
+ 
+```c
+func removeElement(_ nums: inout [Int], _ val: Int) -> Int {
+    _ = nums.map {_ in
+        if let index = nums.firstIndex(of: val) {
+            nums.remove(at: index)
+        }
+    }
+    return nums.count
+}
+```
  
 ###### 3. Longest Substring Without Repeating Characters (서로 다른 문자의 최대 길이 수) 
 
