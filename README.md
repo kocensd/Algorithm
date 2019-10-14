@@ -1,4 +1,28 @@
 # Algorithm
+
+###### 53. Maximum Subarray (가장 큰 배열 합)
+
+```c
+func maxSubArray(_ nums: [Int]) -> Int {
+    if nums.count == 0 {
+        return 0
+    } else if nums.count == 1 {
+        return nums[0]
+    } else {
+        var m = 0
+        var result = Int.min
+        print(result)
+        for i in 0..<nums.count {
+            m = max(nums[i], nums[i] + m)
+            
+            result = max(result, m)
+            print("i: \(i)  nums[]: \(nums[i])  nums+m: \(nums[i] + m) result: \(result)")
+        }
+        return result
+    }
+}
+```
+
 ###### 27. Remove Element
  
 ```c
