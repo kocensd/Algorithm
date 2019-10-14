@@ -1,4 +1,30 @@
 # Algorithm
+ 
+###### 3. Longest Substring Without Repeating Characters (서로 다른 문자의 최대 길이 수) 
+
+```c
+func lengthOfLongestSubstring(_ s: String) -> Int {                                                                 
+    if s.count == 0 {
+        return 0
+    } else if s.count == 1 {
+      return 1
+    }
+    
+    var maxLength = 0
+    var temp = [Character]()
+    let charArray = Array(s)
+    temp.append(charArray[0])
+    
+    for i in 1...charArray.count-1 {
+        if let index = temp.firstIndex(of: charArray[i]) {
+            temp.removeFirst(index+1)
+        }
+        temp.append(charArray[i])
+        maxLength = max(maxLength, temp.count)
+    }
+    return maxLength
+}
+ ```
 
 ###### string값 string배열로 변환하기 
 ```swift
