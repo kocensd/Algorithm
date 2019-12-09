@@ -1,5 +1,15 @@
 # Algorithm
 
+###### 58. Length of Last Word (단어 갯수 세기)
+
+```c
+func lengthOfLastWord(_ s: String) -> Int {
+    if s == "" { return 0 }
+    let words = s.split(separator: " ") // " "을 기준으로 단어배열생성됨
+    return words.last?.count ?? 0
+}
+```
+
 ###### 53. Maximum Subarray (가장 큰 배열 합)
 
 ```c
