@@ -1,5 +1,21 @@
 # Algorithm
 
+###### 4. Median of Two Sorted Arrays (배열 중간값 찾기)
+
+```c
+func findMedianSortedArrays(_ nums1: [Int], _ nums2: [Int]) -> Double {
+    let num3 = (nums1 + nums2).sorted()
+
+    if num3.count % 2 == 0 {
+        let middleValue = num3[num3.count / 2]
+        let prevMiddleValue = num3[(num3.count / 2) - 1]
+        return (Double(middleValue) + Double(prevMiddleValue)) / 2.0
+    } else {
+        return Double(num3[num3.count / 2])
+    }
+}
+```
+
 ###### 58. Length of Last Word (단어 갯수 세기)
 
 ```c
