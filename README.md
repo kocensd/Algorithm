@@ -1,5 +1,32 @@
 # Algorithm
 
+###### 389. Find the Difference (다른 한단어 찾기)
+
+```c
+func findTheDifference(_ s: String, _ t: String) -> Character {
+    var str: Character = " "
+    let s = s.map { String($0) }
+    let t = t.map { String($0) }
+    let sArr = s.sorted()
+    let tArr = t.sorted()
+    
+    for i in 0..<sArr.count {
+        if sArr[i] == tArr[i] {
+            continue
+        } else {
+            str = Character(tArr[i])
+            break
+        }
+    }    
+    
+    if str == " " {
+        str = Character(tArr.last!)
+    }
+    
+    return str
+}
+```
+
 ###### 258. Add Digits (자리수 합이 10이하가 되면 됨) map, filter, reduce를 활용하는걸 더 추천
 
 ```c
