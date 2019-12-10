@@ -1,6 +1,6 @@
 # Algorithm
 
-###### 258. Add Digits (자리수 합이 10이하가 되면 됨)
+###### 258. Add Digits (자리수 합이 10이하가 되면 됨) map, filter, reduce를 활용하는걸 더 추천
 
 ```c
 func addDigits(_ num: Int) -> Int {
