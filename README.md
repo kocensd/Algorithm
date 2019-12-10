@@ -1,5 +1,19 @@
 # Algorithm
 
+###### 217. Contains Duplicate (중복값 있는지 체크)
+
+```c
+ func containsDuplicate(_ nums: [Int]) -> Bool {
+   let setNums = Set<Int>(nums)
+
+    if nums.count == setNums.count {
+        return false
+    } else {
+        return true
+    }
+}
+```
+
 ###### 4. Median of Two Sorted Arrays (배열 중간값 찾기)
 
 ```c
