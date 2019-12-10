@@ -1,5 +1,23 @@
 # Algorithm
 
+###### 258. Add Digits (자리수 합이 10이하가 되면 됨)
+
+```c
+func addDigits(_ num: Int) -> Int {
+    var str = num
+    while str > 0 {
+        str = String(str).map {
+            String($0)
+        }.reduce(0) {
+            Int($0) + Int($1)!
+        }
+    
+        if str < 10 { break }
+    }
+    return str
+}
+```
+
 ###### 242. Valid Anagram (anagram: 철자 순서를 바꾼 말)
 
 ```c
