@@ -1,5 +1,18 @@
 # Algorithm
 
+###### 242. Valid Anagram (anagram: 철자 순서를 바꾼 말)
+
+```c
+func isAnagram(_ s: String, _ t: String) -> Bool {
+  if s == "" && t == "" { return true }
+  if s.sorted() == t.sorted() {
+    return true
+  } else {
+    return false
+  }
+}
+```
+
 ###### 217. Contains Duplicate (중복값 있는지 체크)
 
 ```c
