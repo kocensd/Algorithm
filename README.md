@@ -1,5 +1,21 @@
 # Algorithm
 
+###### 414. Third Maximum Number (배열에서 세번째로 높은 수 찾기)
+```c
+ func thirdMax(_ nums: [Int]) -> Int {  // 배열에서 max값 1,2번째를 버리고 남은 배열의 max값을 가지고 온다.
+    var arr = Set<Int>(nums)
+
+    if arr.count < 3 {
+        return arr.max()!
+    } else {
+        for _ in 0..<2 {
+            arr.remove(arr.max()!)
+        }
+    }
+    return arr.max()!
+}
+```
+
 ###### 412. Fizz Buzz
 ```c
 func fizzBuzz(_ n: Int) -> [String] {
