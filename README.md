@@ -1,5 +1,27 @@
 # Algorithm
 
+###### 412. Fizz Buzz
+```c
+func fizzBuzz(_ n: Int) -> [String] {
+    let three = "Fizz"
+    let five = "Buzz"
+    var arr: [String] = []
+
+    for i in 1...n {
+        if i % 3 == 0 && i % 5 == 0 {
+            arr.append("\(three)\(five)")
+        } else if i % 3 == 0 {
+            arr.append("\(three)")
+        } else if i % 5 == 0 {
+            arr.append("\(five)")
+        } else {
+            arr.append("\(i)")
+        }
+    }
+    return arr
+}
+```
+
 ###### 389. Find the Difference (다른 한단어 찾기)
 
 ```c
