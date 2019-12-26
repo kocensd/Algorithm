@@ -1,10 +1,17 @@
 # Algorithm
 
+###### 1108. Defanging an IP Address (문자열치환)
+```c
+func defangIPaddr(_ address: String) -> String {
+    return address.replacingOccurrences(of: ".", with: "[.]")
+}
+```
+
 ###### 1295. Find Numbers with Even Number of Digits (index가 짝수인거 찾기)
 ```c
 func findNumbers(_ nums: [Int]) -> Int {
     let result = nums
-    .map { Array(String($0)) }
+    .map { Array(String($0)) }   //Array(문자열마 가능함)
     .filter { $0.count % 2 == 0 }
 
     return result.count
