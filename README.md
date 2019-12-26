@@ -1,4 +1,20 @@
 # Algorithm
+###### 1281. Subtract the Product and Sum of Digits of an Integer (배열 곱 - 합)
+```c
+func subtractProductAndSum(_ n: Int) -> Int {
+    let arr = String(n)
+    .map { String($0) }
+    
+    //이거 한번에 처리하는방버 없나?..
+    let mul = arr.reduce(1) {
+        return Int($0) * Int($1)!
+    }
+    let plus = arr.reduce(0) {
+        return Int($0) + Int($1)!
+    }
+    return mul-plus
+}
+```
 
 ###### 1108. Defanging an IP Address (문자열치환)
 ```c
