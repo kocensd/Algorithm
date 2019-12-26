@@ -1,5 +1,16 @@
 # Algorithm
 
+###### 1295. Find Numbers with Even Number of Digits (index가 짝수인거 찾기)
+```c
+func findNumbers(_ nums: [Int]) -> Int {
+    let result = nums
+    .map { Array(String($0)) }
+    .filter { $0.count % 2 == 0 }
+
+    return result.count
+}
+```
+
 ###### 434. Number of Segments in a String (문자열 나눠서 갯수 구하기)
 ```c
 func countSegments(_ s: String) -> Int {
