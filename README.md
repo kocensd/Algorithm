@@ -1,4 +1,20 @@
 # Algorithm
+
+###### 961. N-Repeated Element in Size 2N Array (중복값 찾기)
+```c
+func repeatedNTimes(_ A: [Int]) -> Int {
+    var arr: [Int] = []
+    for a in A {
+        if arr.contains(a) {
+            return a
+        } else {
+            arr.append(a)
+        }
+    }
+    return 0
+}
+```
+
 ###### 905. Sort Array By Parity (짝수 홀수 정렬)
 ```c
 func sortArrayByParity(_ A: [Int]) -> [Int] {
