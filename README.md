@@ -1,4 +1,18 @@
 # Algorithm
+
+###### 709. To Lower Case (대문자를 소문자로 변경하기)
+```c
+func toLowerCase(_ str: String) -> String {
+//    return str.lowercased()  //이것도 가능하지만 생략
+    
+    //아스키코드로 변경진행해봤음
+    return str.utf8.map {
+        $0 <= 90 && $0 >= 65 ? String(UnicodeScalar($0 + 32)): String(UnicodeScalar($0))  //대문자 -> 소문자
+//        $0 >= 97 && $0 <= 122 ? String(UnicodeScalar($0 - 32)): String(UnicodeScalar($0))  // 소문자 -> 대문자
+    }.joined()
+}
+```
+
 ###### 1281. Subtract the Product and Sum of Digits of an Integer (배열 곱 - 합)
 ```c
 func subtractProductAndSum(_ n: Int) -> Int {
