@@ -1,4 +1,18 @@
 # Algorithm
+###### 905. Sort Array By Parity (짝수 홀수 정렬)
+```c
+func sortArrayByParity(_ A: [Int]) -> [Int] {
+    let even = A.filter {
+        return $0 % 2 == 0
+    }
+
+    let odd = A.filter {
+        return $0 % 2 != 0
+    }
+    return even + odd
+}
+```
+
 ###### 804. Unique Morse Code Words (문자열 모스부호로 변경하고 )
 ```c
 func uniqueMorseRepresentations(_ words: [String]) -> Int {
