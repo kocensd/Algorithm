@@ -1,4 +1,17 @@
 # Algorithm
+###### 804. Unique Morse Code Words (문자열 모스부호로 변경하고 )
+```c
+func uniqueMorseRepresentations(_ words: [String]) -> Int {
+        let morseCode = [".-","-...","-.-.","-..",".","..-.","--.","....","..",".---","-.-",".-..","--","-.","---",".--.","--.-",".-.","...","-","..-","...-",".--","-..-","-.--","--.."]
+        
+        let result = Set<String>(words.map {
+        $0.utf8.map {
+            return morseCode[Int($0 - 97)]
+        }.joined()
+    })    
+    return result.count
+}
+```
 
 ###### 709. To Lower Case (대문자를 소문자로 변경하기)
 ```c
