@@ -1,5 +1,29 @@
 # Algorithm
 
+###### 657. Robot Return to Origin
+```c
+func judgeCircle(_ moves: String) -> Bool {
+    var sideNum = 0
+    var upDownNum = 0
+    let arr = moves.map { String($0) }
+    for i in 0..<arr.count {
+        switch arr[i] {
+        case "U":
+            upDownNum += 1
+        case "D":
+            upDownNum -= 1
+        case "L":
+            sideNum += 1
+        case "R":
+            sideNum -= 1
+        default:
+            print("")
+        }
+    }
+    return (sideNum == 0 && upDownNum == 0) ? true : false
+}
+```
+
 ###### 977. Squares of a Sorted Array 
 ```c
  func sortedSquares(_ A: [Int]) -> [Int] {
