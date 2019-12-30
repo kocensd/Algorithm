@@ -1,5 +1,18 @@
 # Algorithm
 
+###### 977. Squares of a Sorted Array 
+```c
+ func sortedSquares(_ A: [Int]) -> [Int] {
+    var arr: [Int] = []
+
+    for a in A {
+        arr.append(a * a)
+    }
+
+    return arr.sorted()
+}
+```
+
 ###### 961. N-Repeated Element in Size 2N Array (중복값 찾기)
 ```c
 func repeatedNTimes(_ A: [Int]) -> Int {
