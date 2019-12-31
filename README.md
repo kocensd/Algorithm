@@ -1,5 +1,18 @@
 # Algorithm
 
+###### 1207. Unique Number of Occurrences
+```c
+func uniqueOccurrences(_ arr: [Int]) -> Bool {
+    let ee = arr.reduce([:], { (res, current) -> [Int: Int] in
+    var res = res
+    res[current, default: 0] += 1  // dictionary default value
+    return res
+    })
+
+    return Set(Array(ee.values)).count == ee.keys.count
+}
+```
+
 ###### 657. Robot Return to Origin
 ```c
 func judgeCircle(_ moves: String) -> Bool {
