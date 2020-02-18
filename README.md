@@ -1,5 +1,24 @@
 # Algorithm
 
+###### 
+```c
+func counting(n: Int, s: String) -> Int {
+    var result = 0
+    _ = s.map { String($0) }
+        .reduce(into: 0) { (res, s) in
+            res += s == "U" ? +1 : -1
+            if s == "U" && res == 0 {
+                result += 1
+            }
+    }
+    return result
+}
+
+print(counting(n: 12, s: "UDDDUDUU"))
+```
+
+==========================================leetcode==========================================
+
 ###### 1207. Unique Number of Occurrences
 ```c
 func uniqueOccurrences(_ arr: [Int]) -> Bool {
