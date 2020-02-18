@@ -1,6 +1,28 @@
 # Algorithm
 
-###### 
+###### Warm-up
+
+```c
+func sockMerchant(n: Int, ar: [Int]) -> Int {
+    let set = Set<Int>(ar)
+    var result = 0
+    for s in set {
+        result += ar.filter { $0 == s }.count / 2
+    }
+
+//run time error(reduce를 두번써서)
+    // let count = ar.reduce([:], { (res, current) -> [Int: Int] in
+    //     var res = res
+    //     res[current, default: 0] += 1
+    //     return res
+    //     }).values.reduce(0, { (result, element) -> Int in
+    //         return result + (element/2)
+    //     })
+    
+    return result
+}
+```
+
 ```c
 func counting(n: Int, s: String) -> Int {
     var result = 0
