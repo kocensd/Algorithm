@@ -3,7 +3,7 @@
 ###### Warm-up
 
 ```c
-func sockMerchant(n: Int, ar: [Int]) -> Int {
+func sock(n: Int, ar: [Int]) -> Int {
     let set = Set<Int>(ar)
     var result = 0
     for s in set {
@@ -21,6 +21,8 @@ func sockMerchant(n: Int, ar: [Int]) -> Int {
     
     return result
 }
+
+print(sock(n: 9, ar: [10, 20, 20, 10, 10, 30, 50, 10, 20]))
 ```
 
 ```c
