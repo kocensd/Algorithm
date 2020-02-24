@@ -3,6 +3,18 @@
 ###### Warm-up
 
 ```c
+    let str = s.map { String($0) }
+    //let count1 = str.filter { $0 == str[0] }.count
+    let count1 = str.filter { $0 == "a" }.count//주어진 문자열의 첫번째를 찾는게 아니라 "a" 를 찾는 문제였음.
+    let firstSum = (n / str.count) * count1
+    
+    let count2 = n % str.count
+    let twoSum = str[0..<count2].filter { $0 == "a" }.count
+    
+    return firstSum + twoSum
+```
+
+```c
 func sock(n: Int, ar: [Int]) -> Int {
     let set = Set<Int>(ar)
     var result = 0
