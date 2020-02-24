@@ -14,7 +14,7 @@ func repeated(_ s: String, _ n: Int) -> Int {
     
     return firstSum + twoSum
 }
-    print(repeated("gfcaaaecbg", 547602))
+print(repeated("gfcaaaecbg", 547602))
 ```
 
 ```c
