@@ -1,5 +1,21 @@
 # Algorithm
 
+###### Array
+
+- que배열안의 문자열이 str에 몇개나 있는지 확인하는문제
+```c
+func matching(_ str: [String], _ que: [String]) -> [Int] {
+
+    let arr = que.compactMap { str in //flatMap은 삭제되었다. compactMap을 사용
+        str.filter { $0 == str }.count
+    }
+    return arr
+}
+
+print(matching(["aba", "baba", "aba", "xzxb"], ["aba", "xzxb", "ab"]))
+```
+
+
 ###### Warm-up
 
 ```c
