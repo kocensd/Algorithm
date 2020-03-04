@@ -3,6 +3,29 @@
 ###### Warm-up
 
 ```c
+func rotLeftTest(_ a: [Int], _ d: Int) -> [Int] {
+    let num = d % a.count
+    var arr = a.dropFirst(num)
+    arr.append(contentsOf: a.dropLast(a.count - num ))
+
+    return Array(arr)
+    
+    //runtime error
+    // var arr = a
+    // let num = d % a.count
+    
+    // for _ in 0..<num { //이 for문이 runtime error를 방출시킨다.
+    //     arr.append(arr[0])
+    //     arr.remove(at: 0)
+    // }
+
+    // return arr
+}
+
+print(rotLeftTest([1,2,3,4,5], 53))
+```
+
+```c
 func repeated(_ s: String, _ n: Int) -> Int {
     let str = s.map { String($0) }
     //let count1 = str.filter { $0 == str[0] }.count
