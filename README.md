@@ -1,7 +1,7 @@
 # Algorithm
 
 ###### String Manipulation
-- 두개의 문자열에서 anagrams 만들기
+- 두개의 문자열에서 anagrams 만들때 불필요한 문자 count 구하기
 * anagrams: 앞뒤로 똑같이 해도 두 단어가 같은것
 
 ```c
