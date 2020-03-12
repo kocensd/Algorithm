@@ -1,5 +1,27 @@
 # Algorithm
 
+###### String Manipulation
+- 두개의 문자열에서 anagrams 만들기
+* anagrams: 앞뒤로 똑같이 해도 두 단어가 같은것
+
+```c
+func anagram(a: String, b: String) -> Int {
+    var dic: [String: Int] = [:]
+    _ = a.map{ String($0) }.map { str in
+        
+        dic[str] = (dic[str] ?? 0) + 1
+    }
+    print(dic)
+    
+    _ = b.map{ String($0) }.map { str in
+        dic[str] = (dic[str] ?? 0) - 1
+    }
+    print(dic)
+    return abs(dic.values.reduce(0, +))
+}
+print(anagram(a: "fcrxzwscanmligyxyvym", b: "jxwtrhvujlmrpdoqbisbwhmgpmeoke"))
+```
+
 ###### Array
 
 - que배열안의 문자열이 str에 몇개나 있는지 확인하는문제
