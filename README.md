@@ -1,6 +1,48 @@
 # Algorithm
 
+
 ###### String Manipulation
+
+- 해당 문자열에서 char 갯수가 같은거만 'YES' 아니면 'NO', 한가지 단어만 -1 한번마 가능함
+Sherlock and the Valid String
+
+```c
+func valid(s: String) -> String {
+    let arr = s.map{ String($0) }
+    
+    let dic = arr.reduce([:], { (res, current) -> [String: Int] in
+        var res = res
+        res[current] = (res[current] ?? 0) + 1
+        return res
+    })
+    
+    let resultDic = dic.values.reduce([:], { (res, current) -> [Int: Int] in
+        var res = res
+        res[current] = (res[current] ?? 0) + 1
+        return res
+    })
+    print(resultDic) //여기서부터 -1 해주는거때문에 조건이 지저분해짐..
+    if resultDic.values.count >= 3 { //갯수가 다른 문자가 3개 이상일때 무조건 NO
+        return "NO"
+    } else if resultDic.values.count == 1 { //모든 문자의 갯수가 같을때 무조건 YES
+        return "YES"
+    } else {  // [key: value, key: value] 이경우만
+        let min = resultDic.values.min()! 
+        let dis = resultDic.keys.reduce(0) { abs($0 - $1) } 
+        if min == 1 && dis == 1 {
+            return "YES"
+        } else {
+            if resultDic[1] == 1 {
+                return "YES"
+            } else {
+                return "NO"
+            }
+        }
+    }
+}
+print(valid(s: "aabbccddeefghi"))
+```
+
 - 두개의 문자열에서 anagrams 만들때 불필요한 문자 count 구하기
 * anagrams: 앞뒤로 똑같이 해도 두 단어가 같은것
 
