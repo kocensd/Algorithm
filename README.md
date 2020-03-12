@@ -4,7 +4,7 @@
 ###### String Manipulation
 
 - 해당 문자열에서 char 갯수가 같은거만 'YES' 아니면 'NO', 한가지 단어만 -1 한번마 가능함
-# Sherlock and the Valid String
+- Sherlock and the Valid String
 
 ```c
 func valid(s: String) -> String {
