@@ -1,6 +1,30 @@
 # Algorithm
 
 ###### Dictionaries and Hashmaps
+- countTriplets 등차수열 (geometric progression)
+- 중복값이 있을때 등차수열의 경우의 수는 몇가지인가???? (* 해당 문제는 토론을 봄)
+- 이건 공식을 외우는 수밖에 없을듯 
+```c
+func countTriplets(arr: [Int], r: Int) -> Int {
+
+    var dictSecond: [Int: Int] = [:]
+    var dictThird: [Int: Int] = [:]
+    var count = 0
+    
+    for value in arr {
+        print("value: \(value)")
+        count += dictThird[value] ?? 0
+        dictThird[value * r] = (dictThird[value * r] ?? 0) + (dictSecond[value] ?? 0)
+        print("dictThird:\(dictThird)")
+        dictSecond[value * r] = (dictSecond[value * r] ?? 0) + 1
+        print("dictSecond:\(dictSecond)")
+    }
+    return count
+}
+print(countTriplets(arr: [1, 2, 2, 4], r: 2))
+```
+
+
 - sherlockAndAnagrams 시간복잡도에서 계산이 안되네.........ㅠㅠㅠㅠㅠㅠㅠㅠㅠ 여기서 더 좋은방법이 뭘까....
 ```c
 func sherlockAndAnagrams(s: String) -> Int {
