@@ -3,7 +3,7 @@
 ###### Dictionaries and Hashmaps
 - countTriplets 등차수열 (geometric progression)
 - 중복값이 있을때 등차수열의 경우의 수는 몇가지인가???? (* 해당 문제는 토론을 봄)
-- 이건 공식을 외우는 수밖에 없을듯 
+- 이건 공식을 외우는 수밖에 없을듯 ?? 엥 이것도 timeout이 걸리네........
 ```c
 func countTriplets(arr: [Int], r: Int) -> Int {
 
