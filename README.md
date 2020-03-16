@@ -1,5 +1,49 @@
 # Algorithm
 
+###### Dictionaries and Hashmaps
+- sherlockAndAnagrams 시간복잡도에서 계산이 안되네.........ㅠㅠㅠㅠㅠㅠㅠㅠㅠ 여기서 더 좋은방법이 뭘까....
+```c
+func sherlockAndAnagrams(s: String) -> Int {
+    let arr = Array(s)
+    var count = 0
+    var index = 0
+    var targets: [String] = []
+    while index < arr.count - 1 {
+        for i in 0..<arr.count - index {
+            let pivot = String(arr[i..<i+index+1].sorted())
+            for target in targets {
+                if target == pivot {
+                    count += 1
+                }
+            }
+            targets.append(pivot)
+        }
+        index += 1
+    }
+    return count
+    
+   //let arr = Array(s)
+   //var count = 0
+   //var index = 1
+
+   //while index < arr.count  {
+   //    for i in 0..<arr.count-index {
+   //        let pivot = arr[i..<i+index]
+   //        print(pivot)
+   //        for j in i+1..<arr.count - (index - 1) {
+   //            let target = arr[j..<j+index]
+   //            print(target)
+   //            if pivot.sorted() == target.sorted() {
+   //                count += 1
+   //            }
+   //        }
+   //    }
+   //    index += 1
+  // }
+  // return count
+//}
+
+```
 
 ###### String Manipulation
 
