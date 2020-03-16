@@ -42,7 +42,7 @@ func sherlockAndAnagrams(s: String) -> Int {
   // }
   // return count
 //}
-
+print(sherlockAndAnagrams(s: "kkkk"))
 ```
 
 ###### String Manipulation
