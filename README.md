@@ -1,4 +1,16 @@
 # Algorithm
+###### Warmup
+- 간단한 # 찍기
+
+```c
+func staircase(n: Int) -> Void {
+    for i in 1...n {
+        print(String(repeating: " ", count: (n-i)) + String(repeating: "#", count:i))
+    }
+}
+
+print(staircase(n: 4))
+```
 
 ###### Dictionaries and Hashmaps
 - countTriplets 등차수열 (geometric progression)
