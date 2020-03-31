@@ -1,6 +1,6 @@
 # Algorithm
 
-###### Warmup
+###### 해시 > 위장
 - 경우의 수 구하기 (같은 이름의 종류는X, 최소 한개의 의상으 입는다)
 ```c
 func solution(_ clothes:[[String]]) -> Int {
