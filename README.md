@@ -1,4 +1,21 @@
 # Algorithm
+
+###### Warmup
+- 경우의 수 구하기 (같은 이름의 종류는X, 최소 한개의 의상으 입는다)
+```c
+func solution(_ clothes:[[String]]) -> Int {
+    var dic: [String: Int] = [:]
+    var sum = 0
+    for i in 0..<clothes.count {
+        dic[clothes[i][1]] = (dic[clothes[i][1]] ?? 0) + 1
+    }
+    sum = dic.values.reduce(0, { (($0+1) * ($1+1) - 1) }) //최소 한개으 의상으 입어야 하기 때문에 -1 해준다
+    return sum
+}
+
+print(solution([["yellow_hat", "headgear"], ["blue_sunglasses", "eyewear"], ["green_turban", "headgear"]]))
+```
+
 ###### Warmup
 - 간단한 # 찍기
 
