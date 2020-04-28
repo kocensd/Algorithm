@@ -1,3 +1,22 @@
+- Unicode
+
+```c
+var char = "A"
+UnicodeScalar(char)?.value //65 -> UInt32
+
+let num = 97
+if let num = UnicodeScalar(num){
+    print(num) //a
+}
+
+//문자열 Unicode가져오기
+let str = "abcDEF"
+for index in str.utf16 {
+    print(index)// 97 98 99 68 69
+}
+
+```
+
 - reduce
 
 ```c
