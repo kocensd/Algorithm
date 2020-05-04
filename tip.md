@@ -1,3 +1,31 @@
+- 브루트 포스(순열 - 재귀) 사전순서X 
+
+```c
+var arr = [1,2,3,4]
+func log(_ size: Int) {
+    var ar: [Int] = []
+    for i in 0..<size {
+        ar.append(arr[i])
+    }
+    print(ar.map{ String($0) }.joined())
+}
+
+func permutation(_ n: Int, _ r: Int, _ depth: Int) {
+    if r == depth {
+        log(depth)
+        return
+    }
+    
+    for i in depth..<n {
+        arr.swapAt(i, depth)
+        permutation(n,r,depth + 1)
+        arr.swapAt(i, depth)
+    }
+}
+
+print(permutation(arr.count,3,0)) // 배열count 중에 3개의 숫자를 가지고 순열시킨다.
+```
+
 - Unicode
 
 ```c
