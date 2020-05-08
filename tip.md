@@ -30,18 +30,18 @@ func Prints() {
     }
 }
 
-func DSF(_ Idx: Int, _ Cnt: Int) {
-    if Cnt == 7 {
+func DSF(_ idx: Int, _ cnt: Int) {
+    if cnt == 7 {
         Prints()
     }
     
-    for i in Idx..<arr.count {
+    for i in idx..<arr.count {
         if count == 1 { break }
         if select[i] == true {
             continue
         }
         select[i] = true
-        DSF(i, Cnt + 1)
+        DSF(i, cnt + 1)
         select[i] = false
     }
 }
