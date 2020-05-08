@@ -60,7 +60,7 @@ func log(_ size: Int) {
     print(ar.map{ String($0) }.joined())
 }
 
-func permutation(_ n: Int, _ r: Int, _ depth: Int) {
+func Permutation(_ n: Int, _ r: Int, _ depth: Int) {
     if r == depth {
         log(depth)
         return
@@ -68,12 +68,12 @@ func permutation(_ n: Int, _ r: Int, _ depth: Int) {
     
     for i in depth..<n {
         arr.swapAt(i, depth)
-        permutation(n,r,depth + 1)
+        Permutation(n,r,depth + 1)
         arr.swapAt(i, depth)
     }
 }
 
-print(permutation(arr.count,3,0)) // 배열count 중에 3개의 숫자를 가지고 순열시킨다.
+print(Permutation(arr.count,3,0)) // 배열count 중에 3개의 숫자를 가지고 순열시킨다.
 ```
 
 - Unicode
