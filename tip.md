@@ -2,30 +2,45 @@
 ex) 1,2,3,4,5에서 3개의 숫자만 가져와서 조합해주기
 
 ```c
-let arr: [Int] = [1,2,3,4,5]
-var select: [Bool] = Array(repeating: false, count: arr.count)
-var result: [String] = []
+import Foundation
 
-func Print() {
+var arr: [Int] = []
+var result: [Int] = []
+var count = 0 //하나의 경우만 가져오기위해서 count처리 해줬음(만약 몇가지의 수가 있는지 체크하려면 없애도 됨.)
+
+for _ in 0...8 {
+    arr.append(Int(readLine()!)!)
+}
+
+var select: [Bool] = Array(repeating: false, count: arr.count)
+
+func Prints() {
     result.removeAll()
     for i in 0..<arr.count {
         if select[i] == true {
-            result.append(String(arr[i]))
+            result.append(arr[i])
         }
     }
-    print(result.joined())
+    if result.reduce(0, +) == 100 {
+        count += 1
+        result.sort()
+        for j in 0..<result.count {
+            print(result[j])
+        }
+    }
 }
 
 func DSF(_ Idx: Int, _ Cnt: Int) {
-    if Cnt == 3 {
-        Print()
-        return
+    if Cnt == 7 {
+        Prints()
     }
     
     for i in Idx..<arr.count {
-        if select[i] == true { continue }
+        if count == 1 { break }
+        if select[i] == true {
+            continue
+        }
         select[i] = true
-        
         DSF(i, Cnt + 1)
         select[i] = false
     }
