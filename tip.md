@@ -1,3 +1,38 @@
+- 브루트 포스(조합 - 재귀) 사전순서X (순열과 다른점은 1,2,3과 3,2,1은 같은 수로 본다.)
+ex) 1,2,3,4,5에서 3개의 숫자만 가져와서 조합해주기
+
+```c
+let arr: [Int] = [1,2,3,4,5]
+var select: [Bool] = Array(repeating: false, count: arr.count)
+var result: [String] = []
+
+func Print() {
+    result.removeAll()
+    for i in 0..<arr.count {
+        if select[i] == true {
+            result.append(String(arr[i]))
+        }
+    }
+    print(result.joined())
+}
+
+func DSF(_ Idx: Int, _ Cnt: Int) {
+    if Cnt == 3 {
+        Print()
+        return
+    }
+    
+    for i in Idx..<arr.count {
+        if select[i] == true { continue }
+        select[i] = true
+        
+        DSF(i, Cnt + 1)
+        select[i] = false
+    }
+}
+DSF(0,0)
+```
+
 - 브루트 포스(순열 - 재귀) 사전순서X 
 
 ```c
