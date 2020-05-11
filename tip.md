@@ -75,6 +75,52 @@ func Permutation(_ n: Int, _ r: Int, _ depth: Int) {
 
 print(Permutation(arr.count,3,0)) // 배열count 중에 3개의 숫자를 가지고 순열시킨다.
 ```
+- 브루트 포스(순열 - 재귀) 사전순서O
+
+```c
+let N = 4
+var sum: [Int] = []
+var arr: [Int] = [1,2,3,4]
+
+func rightRotate(_ arr: inout [Int], _ e: Int, _ s: Int) {
+    let temp: Int = arr[e]
+    for i in stride(from: e, to: s, by: -1) {
+        arr[i] = arr[i-1]
+    }
+//    for i in (e..<s).reversed() { -> 감소문을 이렇게 쓰면 upperBound < lowerBound 에러남. 그래서 stride로 감소문을 작성
+//        arr[i] = arr[i-1]
+//    }
+    arr[s] = temp
+}
+
+
+func leftRotate(_ arr: inout [Int], _ s: Int, _ e: Int) {
+    let temp: Int = arr[e]
+    for i in e..<s {
+        arr[i] = arr[i+1]
+    }
+    arr[s] = temp
+}
+
+func permutation(_ arr: inout [Int], _ depth: Int) {
+    if depth == N {
+        for i in 0..<N {
+            sum.append(arr[i])
+        }
+        print(sum.map{ String($0) }.joined())
+        sum.removeAll()
+        return
+    }
+
+    for i in depth..<N {
+        rightRotate(&arr, i, depth)
+        permutation(&arr, depth+1)
+        leftRotate(&arr, i, depth)
+    }
+}
+
+print(permutation(&arr, 0))
+```
 
 - Unicode
 
