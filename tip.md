@@ -1,3 +1,33 @@
+- DFS를 이용한 모든경우의 수 가져오기 중복X([1,2,3] 일때 1,,2,3,12,13,23,123
+
+```c
+let arr = [1,2,3]
+
+var visit: [Bool] = Array(repeating: false, count: 3)
+var temp: [Int] = [1,2,3]
+var result: [Int] = []
+
+func dfs(_ n: Int) {
+    if n == temp.count {
+        for i in 0..<visit.count {
+            if visit[i] {
+                result.append(arr[i])
+            }
+        }
+        print(result.map { String($0) }.joined())
+        result.removeAll()
+    } else {
+        visit[n] = true
+        temp[n] = arr[n]
+        dfs(n+1)
+        visit[n] = false
+        dfs(n+1)
+    }
+}
+
+dfs(0) // 123, 12, 13, 1, 23, 2, 3
+```
+
 - 브루트 포스(조합 - 재귀) 사전순서X (순열과 다른점은 1,2,3과 3,2,1은 같은 수로 본다.)
 ex) 1,2,3,4,5에서 3개의 숫자만 가져와서 조합해주기
 
