@@ -1,3 +1,39 @@
+- 피보나치 구하기
+
+```c
+//피보나치 반복문
+func solution(_ n:Int) -> Int {
+    var head = 0, mid = 0, rear = 1
+
+    for i in 0..<n {
+        print(head)
+        mid = head + rear
+        head = rear
+        rear = mid
+    }
+    return 0
+}
+print(solution(10))
+
+//피보나치 재귀
+func fibo(_ num: Int) -> Int {
+    if num == 0 {
+        return 0
+    } else if num == 1 {
+        return 1
+    } else {
+        return fibo(num - 1) + fibo(num - 2)
+    }
+}
+
+func solution(_ n: Int) {
+    for i in 0..<n {
+        print(fibo(i))
+    }
+}
+print(solution(10))
+```
+
 - DFS를 이용한 모든경우의 수 가져오기 중복X([1,2,3] 일때 1,,2,3,12,13,23,123
 
 ```c
