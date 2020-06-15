@@ -1,0 +1,103 @@
+# Algorithm
+
+###### 괄호변환
+- 문제를 이해하기가 어려움..... 모든걸 한번에 해결하려고 하지말고 해당 조건을 함수로 만들어서 나눠놓으면 금방 해결이 가능한 문제이다.
+- 혹시나 테케 12번부터 틀리시는분은 4-4. u의 첫 번째와 마지막 문자를 제거하고, 나머지 문자열의 괄호 방향을 뒤집어서 뒤에 붙입니다. 
+- 이조건이 reversed가 아니고 ( -> ), ) -> ( 이렇게 변경하라는 말이다.
+
+- 조건
+1. 입력이 빈 문자열인 경우, 빈 문자열을 반환합니다. 
+2. 문자열 w를 두 "균형잡힌 괄호 문자열" u, v로 분리합니다. 단, u는 "균형잡힌 괄호 문자열"로 더 이상 분리할 수 없어야 하며, v는 빈 문자열이 될 수 있습니다. 
+3. 문자열 u가 "올바른 괄호 문자열" 이라면 문자열 v에 대해 1단계부터 다시 수행합니다. 
+  3-1. 수행한 결과 문자열을 u에 이어 붙인 후 반환합니다. 
+4. 문자열 u가 "올바른 괄호 문자열"이 아니라면 아래 과정을 수행합니다. 
+  4-1. 빈 문자열에 첫 번째 문자로 '('를 붙입니다. 
+  4-2. 문자열 v에 대해 1단계부터 재귀적으로 수행한 결과 문자열을 이어 붙입니다. 
+  4-3. ')'를 다시 붙입니다. 
+  4-4. u의 첫 번째와 마지막 문자를 제거하고, 나머지 문자열의 괄호 방향을 뒤집어서 뒤에 붙입니다. 
+  4-5. 생성된 문자열을 반환합니다.
+  
+  
+```c
+//문자열을 u, v로 나눠준다.
+func wordSplit(_ p: String) -> (String, String) {
+    let str = p.map { String($0) }
+    var leftCount = 0, rightCount = 0, idx = 0
+    
+    for i in 0..<str.count {
+        if str[i] == "(" {
+            leftCount += 1
+        } else {
+            rightCount += 1
+        }
+        
+        if leftCount == rightCount {
+            idx = i
+            break
+        }
+    }
+    
+    if idx == str.count - 1 {
+        return (str[0...idx].joined(), "")
+    } else {
+        return (str[0...idx].joined(), str[idx+1...str.count-1].joined())
+    }
+}
+
+//u문자열이 균형잡힌 괄호 문자열인지 올바른 괄호 문자열인지 체크
+func wordValidation(_ s: String) -> Bool {
+    let str = s.map { String($0) }
+    var isBool = true
+    var result: [String] = []
+    
+    for i in 0..<str.count {
+        if str[i] == "(" {
+            result.append("(")
+        } else {
+            if result.count > 0 {
+                result.removeLast()
+            } else {
+                isBool = false
+                break
+            }
+        }
+    }
+    if isBool {
+        return result.count == 0 ? true : false
+    } else {
+        return false
+    }
+}
+
+// ) -> (, ( -> ) 변경
+func wordReversed(_ u: String) -> String {
+    let str = u.map { String($0) }
+    var result = ""
+    for st in str {
+        if st == ")" {
+            result += "("
+        } else {
+            result += ")"
+        }
+    }
+    return result
+}
+
+func solution(_ p:String) -> String {
+    if p.count == 0 { return "" }
+    
+    let strSplit = wordSplit(p)
+    if wordValidation(strSplit.0) {
+        return strSplit.0 + solution(strSplit.1)
+    } else {
+        var u = strSplit.0
+        u.removeFirst()
+        u.removeLast()
+        
+        return "(" + solution(strSplit.1) + ")" + wordReversed(u)
+    }
+}
+
+print(solution("()))((()"))
+
+```
