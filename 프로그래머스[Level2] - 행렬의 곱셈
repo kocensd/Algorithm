@@ -1,0 +1,22 @@
+# Algorithm
+
+###### 행렬의 곱셈
+
+func solution(_ arr1:[[Int]], _ arr2:[[Int]]) -> [[Int]] {
+    //[3,4] [2,3] 이라면 결과값은 [3,2]가 나와야한다. 그래서 arr2[0].count를 해준다.
+    var arr: [[Int]] = Array(repeating: Array(repeating: 0, count: arr2[0].count), count: arr1.count)
+    
+    for i in 0..<arr1.count {
+        for j in 0..<arr2[0].count {
+            var m: Int = 0
+            while m < arr1[0].count {
+                arr[i][j] += arr1[i][m] * arr2[m][j]
+                m += 1
+            }
+        }
+    }
+    
+    return arr
+}
+
+print(solution([[1, 2, 3], [4, 5, 6]], [[1, 4], [2, 5], [3, 6]]))
