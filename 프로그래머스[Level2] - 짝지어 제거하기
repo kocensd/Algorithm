@@ -1,0 +1,29 @@
+# Algorithm
+
+###### 짝지어 제거하기
+
+- 간단한 스택 문제이다. 스택의 마지막 것만 비교해주면 끝
+
+```c
+func solution(_ s:String) -> Int{
+    let arr = s.map{ String($0) }
+    var answer: [String] = []
+    
+    for i in 0..<arr.count {
+        if answer.count == 0 {
+            answer.append(arr[i])
+        } else {
+            if arr[i] == answer.last! {
+                answer.removeLast()
+            } else {
+                answer.append(arr[i])
+            }
+        }
+    }
+    
+    return answer.count == 0 ? 1 : 0
+}
+
+print(solution("cdcd"))
+
+```
