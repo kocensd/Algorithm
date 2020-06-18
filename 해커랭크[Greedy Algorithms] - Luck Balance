@@ -1,0 +1,27 @@
+# Algorithm
+
+###### Luck Balance
+
+- 해커랭크는 영어로 되어있어서 그런지 문제 이해하는게 오래걸리는듯........막상 보면 그렇게 어렵지 않아보이는데...
+- 간단하게 Lena는 대회에서 지면 운이 올라간다. 운을 최대로 만들수 있는 경우는? 이게 문제의 끝이였다.
+- T[i]가 1인것은 중요한대회 0인것은 중요하지 않는대회
+- k의 값은 중요한 대회를 질수있는 경우, 이렇게만 봤을때 드는 방법은 중요하지 않는대회는 무조건 다 진다고 생각하고 중요한 경기에서는 k만큼 질수있는것이다
+  이때 운이 가장 낮은 대회를 져서 운을 최대치로 만들면 되는것 이걸 이렇게 어렵게 설명해놨냐
+  
+```c
+func luckBalance(k: Int, contests: [[Int]]) -> Int {
+  let arr1 = contests.filter { $0[1] == 1 }.map { $0[0] }.sorted(by: >)
+  let arr2 = contests.filter { $0[1] == 0 }.map { $0[0] }.reduce(0, +)
+  var plus = 0, minus = 0
+  
+  if arr1.count > k {
+      plus = Array(arr1[0..<k]).reduce(0, +)
+      minus = Array(arr1[k..<arr1.count]).reduce(0, +)
+      return plus + arr2 - minus
+  } else {
+      return arr1.reduce(0, +) + arr2
+  }
+}
+ 
+print(luckBalance(k: 3, contests: [[5,1], [2,1], [1,1], [8,1], [10,0], [5,0]])) // 29
+```
