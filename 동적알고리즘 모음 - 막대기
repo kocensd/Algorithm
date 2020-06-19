@@ -1,0 +1,36 @@
+# Algorithm
+
+###### 동적알고리즘 
+
+- 하나의 긴 막대기가 있는데 막대기 조각마다 가격이 다르다. 막대기를 적절하게 잘라서 가장 가격이 높게 만들어야 합니다.
+
+- 길이(i) 0 1 2 3 4 5 6 7 8 9 10
+- 가격(Pi) 0 1 5 8 9 10 17 17 20 24 30
+
+```c
+var arr = [0, 1, 5, 8, 9, 10, 17, 17, 20, 24, 30]
+
+func cutRod(_ arr: [Int], _ n: Int) -> Int {
+    var answer: [Int] = Array(repeating: 0, count: arr.count) //여기에 계속값을 저장시켜놓고 가져다가 사용한다.
+    
+    for i in 1...n {
+        var q = -1
+        for j in 1...i {
+            q = max(q, arr[j] + answer[i - j])
+        }
+        answer[i] = q
+    }
+    return answer[n]
+}
+print(cutRod(arr, 4))
+
+```
+
+
+
+
+
+
+
+
+
