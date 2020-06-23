@@ -1,0 +1,43 @@
+
+# Algorithm
+
+###### 정수 삼각형
+- 문제 
+<img src="https://user-images.githubusercontent.com/45751308/85362408-502c0380-b559-11ea-8317-b2969b4e91c0.png" width="60%"></img>
+
+- 데이터를 받아서 2차원 배열로 만들어 주면 arr = [[7], [3, 8], [8, 1, 0], [2, 7, 4, 4], [4, 5, 2, 6, 5]]가 된다.
+- 재귀보다는 dp로 푸는게 시간이 짧아지기 때문에 [[Int]] 형 배열을 미리 생성해서 더한값들을 넣어주고 가져다 사용한다.
+
+```c
+import Foundation
+
+func solution(_ arr: [[Int]]) -> Int {
+    var dp: [[Int]] = Array(repeating: Array(repeating: 0, count: arr.count), count: arr.count)
+    dp[0][0] = arr[0][0]
+    
+    for i in 1..<arr.count {
+        for j in 0..<arr[i].count {
+            if j == 0 {
+                dp[i][j] = arr[i][j] + dp[i-1][j] //삼각형중 왼쪽 변
+            } else if j == arr[i].count - 1 {
+                dp[i][j] = arr[i][j] + dp[i-1][j-1] //삼각형중 오른쪽 변
+            } else {
+                dp[i][j] = arr[i][j] + max(dp[i-1][j-1], dp[i-1][j]) //삼각형 안에있는건 중복됨
+            }
+        }
+    }
+
+    return dp[arr.count-1].max()!
+}
+
+
+let num = Int(readLine()!)!
+var arr: [[Int]] = []
+for _ in 0..<num {
+    let ar = readLine()!.components(separatedBy: " ").map { Int($0)! }
+    arr.append(ar)
+}
+
+print(solution(arr))
+```
+                       
