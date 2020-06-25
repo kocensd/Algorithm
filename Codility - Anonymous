@@ -1,0 +1,27 @@
+# Algorithm
+
+###### Anonymous
+
+- 정수로 이루어진 N 집합이 있을때 비어있는 최소양의 수를 구하시오
+
+ex) [1,3,6,4,1,2] -> 5
+    [-1,-3]       -> 1
+    [1,2,3]       -> 4
+   
+-> Set으로 중복값을 제거해주고 contains로 없는 값을 가져온다.
+-> 맨처음 코드는 Set(A).sorted()를 해줬는데 시간초과 - 정렬을 지워주고 다시 돌렸더니 O(N) or O(N * log(N)) 복잡도가 나왔다.
+```
+public func solution(_ A : inout [Int]) -> Int {
+    let arr = Set(A)
+    var answer = 1
+    
+    for i in 0...arr.count {
+        if !arr.contains(i+1) {
+            answer = i+1
+            break
+        }
+    }
+    
+    return answer
+}
+```
