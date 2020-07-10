@@ -1,0 +1,25 @@
+# Algorithm
+
+###### 연속합
+
+- n개로 이루어진 정수의 수열중에서 연속된 몇 개으 수르 선택하여 가장 큰 합을 구하라.
+- ex) 10, -4, 3, 1, 5, 6, -35, 12, 21, -1 -> 12 + 21 = 33
+- arr의 n값을 구하려고 할때 dp배열에 합을 저장시켜놓고 구하면 된다. 점화식 세우는게 가장 어려움 ㅠ
+
+```c
+import Foundation
+let num = Int(readLine()!)!
+var dp = Array(repeating: 0, count: num)
+var arr = readLine()!.components(separatedBy: " ").map { Int($0)! }
+
+dp[0] = arr[0] //첫번째 배열값은 그냥 넣어주고
+
+for i in 1..<arr.count {
+    if arr[i] > dp[i-1] + arr[i] { 
+        dp[i] = arr[i]
+    } else {
+        dp[i] = dp[i-1] + arr[i]
+    }
+}
+print(dp.max()!)
+```
