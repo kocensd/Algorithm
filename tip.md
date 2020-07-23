@@ -1,3 +1,14 @@
+- Dictionary
+
+```c
+var dic: [String: String] = [:] //생성 및 초기화
+
+//filter로 가지고온 하나의 dic의 key, value값 가져오기
+Array(dic)[0].key
+Array(dic)[0].value
+
+```
+
 - 피보나치 구하기
 
 ```c
