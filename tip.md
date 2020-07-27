@@ -175,7 +175,7 @@ func rightRotate(_ arr: inout [Int], _ e: Int, _ s: Int) {
         arr[i] = arr[i-1]
     }
     for i in stride(from: e, through: s, by: -1 { //s포함
-    
+        //
     }
 //    for i in (e..<s).reversed() { -> 감소문을 이렇게 쓰면 upperBound < lowerBound 에러남. 그래서 stride로 감소문을 작성
 //        arr[i] = arr[i-1]
