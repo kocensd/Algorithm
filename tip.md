@@ -1,3 +1,12 @@
+-  isSubset
+
+```c
+let employees: Set = ["Alicia", "Bethany", "Chris", "Diana", "Eric"]
+let attendees: Set = ["Alicia", "Bethany", "Diana"]
+print(attendees.isSubset(of: employees))
+// Prints "true"
+```
+
 - Dictionary
 
 ```c
