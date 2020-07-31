@@ -1,0 +1,42 @@
+  
+# Algorithm
+
+###### 회문
+
+- 문자열을 뒤집어도 같은 문자가 나오는 경우가 회문이다.
+참고 사이트
+(https://velog.io/@sa833591/%EA%B0%80%EC%9E%A5-%EA%B8%B4-%ED%8C%B0%EB%A6%B0%EB%93%9C%EB%A1%AC-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-Lv.3)참고
+
+```c
+//회문
+func palindrome(_ s: String, _ left: Int, _ right: Int) -> Int {
+    let sArr = s.map { String($0) }
+    var L = left, R = right
+    
+    while (L >= 0 && R < s.count) && sArr[sArr.index(sArr.startIndex, offsetBy: L)] == sArr[sArr.index(sArr.startIndex, offsetBy: R)] {
+        L -= 1
+        R += 1
+    }
+    // 맨 뒤에서부터 기준 문자열을 가지고 앞뒤를 계속 비교해준다.
+    //1. L = 6, R = 6 while문 R < s.count false -> max(len= 1, R-L-1 = -1)값이기 때문에 len은 1
+    //2. L = 5, R = 5 while문 둘다 d 1번통과 -> L = 4, R = 6으로 return R-L-1 = 1
+    ...
+    //5. L = 2, R = 2 while b값으로통과 L = 1, R = 3 둘다 a값으로 회문 성공 그다음 while문에서 return 
+    
+    
+    return R-L-1
+}
+
+
+func solution(_ s:String) -> Int {
+    let length = s.count
+    var len = 1
+
+    for i in stride(from: length, through: 0, by: -1) {
+        len = max(len, palindrome(s, i, i)) //문자열이 홀수일경우
+        len = max(len, palindrome(s, i, i+1)) ////문자열이 짝수일경우
+    }
+    return len
+}
+print(solution("abacde")) //3
+```
