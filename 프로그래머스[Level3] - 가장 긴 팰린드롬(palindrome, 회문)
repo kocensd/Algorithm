@@ -40,3 +40,6 @@ func solution(_ s:String) -> Int {
 }
 print(solution("abacde")) //3
 ```
+
+---> 효율성 1,2번에 시간초과가 나서 실패
+
