@@ -43,3 +43,39 @@ print(solution("abacde")) //3
 
 ---> 효율성 1,2번에 시간초과가 나서 실패
 
+
+```c
+func solution(_ s:String) -> Int {
+    var answer = 1
+    let len = s.count
+    let a: [String] = s.map { String($0) }
+    var dp = Array(repeating: Array(repeating: 0, count: len), count: len)
+    
+    if len == 1 { return 1 }
+    
+    for i in 0..<len {
+        dp[i][i] = 1
+    }
+    
+    for i in 0..<len-1 {
+        if a[i] == a[i+1] {
+            dp[i][i+1] = 1
+            answer = 2
+        }
+    }
+    
+    if len == 2 { return answer }
+    
+    for k in 3...len {
+        for i in 0...len-k {
+            let j = i + k - 1
+            if a[i] == a[j] && dp[i+1][j-1] == 1 {
+                dp[i][j] = 1
+                answer = max(answer, k)
+            }
+        }
+    }
+    
+    return answer
+}
+```
