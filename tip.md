@@ -248,6 +248,17 @@ for i in 0..<100 {
     let sum = Array(String(i)).reduce(0, { Int(String($0))! + Int(String($1))! })
     //먼저 string으로 변환 후 Array형태로 변경하고 reduce를 사용하여 $0값을 String -> Int형으로 변형하여 + 해주면 된다.
 }
+
+let input = ["a", "b", "c", "a", "e"]
+var a = input.reduce([:], { (res, current) -> [String: Int] in
+    var res = res
+    res[current] = (res[current] ?? 0) + 1
+    return res
+})
+print(a)
+
+var b = input.reduce(into: [String: Int]()) { $0[$1] = $0[$1, default:0] + 1 }
+print(b)
 ```
 
 - 소수점 표현하기
