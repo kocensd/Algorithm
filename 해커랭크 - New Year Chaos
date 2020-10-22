@@ -1,0 +1,58 @@
+# Algorithm
+
+###### New Year Chaos
+
+- Array
+
+```c
+func minimumBribes(q: [Int]) -> Void {
+    var q = q
+    var dic: [Int: Int] = [:]
+
+    for i in 0..<q.count {
+        for j in i+1..<q.count {
+            if q[i] > q[j] {
+                dic[q[i]] = (dic[q[i]] ?? 0) + 1
+                q.swapAt(i, j)
+
+                if dic.values.max()! > 2 {
+                    print("Too chaotic")
+                    return
+                }
+            }
+        }
+    }
+    print(dic.values.reduce(0, +))
+}
+
+minimumBribes(q: [1, 2, 5, 3, 7, 8, 6, 4]) -> timeOut발생 O(n^2) 
+```
+
+```c
+func minimumBribes(q: [Int]) -> Void {
+    var q = q
+    for i in 0..<q.count {
+        if q[i] - i > 3 { //현재 값이 i번째에 있는데 3이상이 차이가 난다면 3이상 이동한거라고 판단하여 return
+            print("Too chaotic")
+            return
+        }
+    }
+    var count = 0
+
+    for i in 0..<q.count {
+        var swap = false
+
+        for j in 0..<q.count - 1 - i {
+            if q[j] > q[j+1] {
+                q.swapAt(j, j+1)
+                count += 1
+                swap = true
+            }
+        }
+        if swap == false { // q가 정렬이 되어있으면 그만 for문을 멈춰야지 계속 돌게되면 10^5 timeOut 발생 
+            break
+        }
+    }
+    print(count)
+}
+```
