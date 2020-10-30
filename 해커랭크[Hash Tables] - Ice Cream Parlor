@@ -1,0 +1,41 @@
+# Algorithm
+
+###### Ice Cream Parlor
+
+- 돈이 남지 않도록 아이스크림을 2개 구매하라.
+
+```c
+func whatFlavors(cost: [Int], money: Int) -> Void {
+    var arr: [Int: Int] = [:]
+    for (i, num) in cost.enumerated() {
+        arr[i] = num
+    }
+
+    for i in 0..<arr.count {
+        let value = money - arr[i]!
+        for j in i+1..<arr.count {
+            if arr[j]! == value {
+                print("\(i+1) \(j+1)")
+                return
+            }
+        }
+    }
+}
+```
+-> 이걸 굳이 나눠서 다시 이중포문을 돌릴 필요가 없네??
+
+```c
+func whatFlavors(cost: [Int], money: Int) -> Void {
+    var arr: [Int: Int] = [:]
+    for (i, num) in cost.enumerated() {
+        let value = money - num
+        if let index = arr[value] {
+            print("\(index+1) \(i+1)")
+            return
+        } else {
+            arr[num] = i
+        }
+    }
+}
+```
+whatFlavors(cost: [2,2,4,3], money: 4)
