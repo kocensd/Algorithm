@@ -1,0 +1,64 @@
+# Algorithm
+
+###### Sherlock and Array 
+
+- 배열의 앞뒤 합이 같은 인덱스가 있는지 찾아라
+
+```c
+func balancedSums(arr: [Int]) -> String {
+     for i in 0..<arr.count {
+        if i == 0 {
+            let a = arr[1..<arr.count].reduce(0, +)
+            if a == 0 {
+                return "YES"
+            }
+        } else if i == arr.count - 1 {
+            let a = arr[0..<arr.count-1].reduce(0, +)
+            if a == 0 {
+                return "YES"
+            }
+        } else {
+            if arr[0..<i].reduce(0, +) == arr[i+1..<arr.count].reduce(0, +) {
+                return "YES"
+            }
+        }
+    }
+
+    return "NO"
+}
+```
+
+-> for문돌면서 현재 index앞뒤로 합을 계속 구했다. -> timeOut 걸림
+
+```c
+func balancedSums(arr: [Int]) -> String {
+    var ar = Array(repeating: 0, count: 100000)
+    let sum = arr.reduce(0, +)
+    
+    for i in 0..<arr.count {
+        if i == 0 {
+            let a = arr[1..<arr.count].reduce(0, +)
+            if a == 0 {
+                return "YES"
+            } else {
+                ar[i] = arr[i]
+            }
+        } else if i == arr.count - 1 {
+            let a = arr[0..<arr.count-1].reduce(0, +)
+            if a == 0 {
+                return "YES"
+            }
+        } else {
+            if (sum - arr[i]) / 2 == ar[i-1] {
+                return "YES"
+            } else {
+                ar[i] = ar[i-1] + arr[i]
+            }
+        }
+    }
+    
+    return "NO"
+}
+```
+
+-> DP를 이용하여 합을 계속 가지고 있으면서 비교해주는 방식으로 처리하였음
