@@ -1,0 +1,24 @@
+# Algorithm
+
+###### Max Array Sum (DP 동적계획법)
+
+- 연속되지 않은 수 가운데 가장 큰수 가져오기
+
+```c
+func maxSubsetSum1(arr: [Int]) -> Int {
+//    var dp = Array(repeating: 0, count: 10000) // 10에 5승이기 때문에 미리 만들어주지 말고 append해주면서 배열을 늘려가는게 시간초과에 안걸릴듯함
+    var dp:[Int] = []
+
+    dp.append(arr[0])
+    dp.append(max(arr[0], arr[1])) //0번째 index와 1번째 index를 비교해주지 않으면 ex) [6,5,-7,-8,-10,100])) //105 가 나온다.
+
+    for i in 2..<arr.count {
+        let value = max(arr[i], dp[i-1])
+        dp.append(max(value, arr[i] + dp[i-2]))
+    }
+    print(dp)
+    return dp.max()!
+}
+print(maxSubsetSum1(arr: [3,5,-7,-8,-10,100])) //105
+
+```
