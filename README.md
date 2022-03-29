@@ -1,5 +1,22 @@
 # Algorithm
 
+###### 소수 판별
+- 해당수가 소수인지 아닌지 체크
+```c
+func isPrime(_ num: Int) -> Bool {
+    if num < 2 {
+        return false
+    } else if num > 2 {
+        for i in 2..<num {
+            if num % i == 0 {
+                return false
+            }
+        }
+    }
+    return true
+}
+```
+
 ###### 해시 > 위장
 - 경우의 수 구하기 (같은 이름의 종류는X, 최소 한개의 의상을 입는다)
 ```c
